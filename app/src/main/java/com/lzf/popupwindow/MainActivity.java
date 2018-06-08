@@ -13,6 +13,7 @@ import android.util.Log;
 import android.util.Property;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -94,6 +95,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void showPop() {
         // 设置布局文件
         mPopupWindow.setContentView(LayoutInflater.from(this).inflate(R.layout.pop_add, null));
+        // 为了避免部分机型不显示，我们需要重新设置一下宽高
+        mPopupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        mPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         // 设置pop透明效果
         mPopupWindow.setBackgroundDrawable(new ColorDrawable(0x0000));
         // 设置pop出入动画
